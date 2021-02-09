@@ -5,6 +5,8 @@ import os
 
 path = os.getcwd()
 
+#text_top execution command coming directly to t_runner
+#main method
 def t_runner(xl_path, ppt_path):
     prs = Presentation(ppt_path)
     slides = [slide for slide in prs.slides]
@@ -12,7 +14,7 @@ def t_runner(xl_path, ppt_path):
     for slide in slides:
         for shape in slide.shapes:
             shapes.append(shape)
-    
+
     replace_dic = xl_to_dic(xl_path, "Sheet1")
     replace_text(replace_dic, shapes)
     try:
@@ -23,6 +25,7 @@ def t_runner(xl_path, ppt_path):
     except:
         messagebox.showerror(title="Erro", message="Something else went wrong")
 
+#replace text in the presentation
 def replace_text(replacements, shapes):
     """Takes dict of {match: replacement, ... } and replaces all matches.
     Currently not implemented for charts or graphics.
@@ -43,6 +46,7 @@ def replace_text(replacements, shapes):
                             paragraph.runs[0].text = whole_text
 
 
+#for converting a excel sheet to a dictionary (caveat: only works for column A and B)
 def xl_to_dic(path, sheet_name):
 
     wb = xl.load_workbook(path)

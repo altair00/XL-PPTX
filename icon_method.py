@@ -3,7 +3,10 @@ import os
 
 
 
+#method for saving the icon from base64 to .ico
 def save_ico():
+
+#base64 representation of the icon
 
     byte = """AAABAAEAQEAAAAEAIAAoQgAAFgAAACgAAABAAAAAgAAAAAEAIAAAAAAAAEAAACMuAAAjLgAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -303,9 +306,10 @@ def save_ico():
         D//D///w/+cP/8P///DP4w//w///8IfDD//D///gh8EH/8P//8GH4YAAAAAAAYfhgAAAAAADh+DA
         AAAAAAcH8HAAAAAADg/wP//////8D/gP//////Af/AD/////AD/+AP////8Af/8A/////wH//+H/
         ////B/////////////////////////////////8="""
-    file = open(os.path.join(os.getcwd(), 'icon.ico'), 'wb') 
-    file.write(base64.b64decode(byte))
-    file.close()
+
+    file = open(os.path.join(os.getcwd(), 'icon.ico'), 'wb')        #opening an empty .ico file
+    file.write(base64.b64decode(byte))                              #decoding base64 icon and saving it to that empty .ico file
+    file.close()                                                    #closing the file operation
 
 
 

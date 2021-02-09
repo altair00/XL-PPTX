@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['GUI.py'],
-             pathex=['C:\\Users\\User\\Desktop\\WOW'],
+             pathex=['C:\\Users\\User\\Desktop\\XL-PPTX'],
              binaries=[],
              datas=[],
              hiddenimports=[],

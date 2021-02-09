@@ -11,21 +11,21 @@ import shutil
 main_path = os.getcwd()
 image_path = os.path.join(main_path, '.image')
 
+#image_top execution command coming directly to i_runner
+#main method
 def i_runner(xl_path, ppt_path):
-
+#checking if the .image path exists or not
+#if not exists try to make one and catch the exceptions(eg: permission error)
     if(path.exists(image_path)):
         shutil.rmtree(image_path)
-    
     try:
         os.mkdir(image_path)
     except PermissionError:
         messagebox.showerror(title="Error", message="Please Try Again")
-    
     wb = xl.load_workbook(xl_path)
     sheet = wb['Sheet1']
-
+#sending a random number for saving purpose
     image_dic = image_return(random.randint(100, 1000), sheet)
-    
     prs = Presentation(ppt_path)
     slides = [slide for slide in prs.slides]
 
@@ -41,8 +41,7 @@ def i_runner(xl_path, ppt_path):
                 inmage = os.path.join(image_path, replacement)
                 replace_img_slide(slide, img, inmage)
 
-                
-    try:    
+    try:
         prs.save(os.path.join(main_path, "output.pptx"))
         messagebox.showinfo("Info", "Operation Succeeded")
     except PermissionError:
@@ -67,20 +66,23 @@ def image_return(u_id, sheet):
 
     return dic
 
+#just save the image if not RGB convert it to RGB
+
 def image_save(image, name):
     if(image.mode in ("RGBA", "P")):
         image = image.convert("RGB")
     image.save(os.path.join(image_path, name))
 
-
+#using the dictionary and finding the matching name image in the shapes object
+#else return -1 
 def find_image_name(shapes, img_name):
     for index, shape in enumerate(shapes):
         if shape.shape_type == 13:
             if(shape._pic.nvPicPr.cNvPr.get('name') == img_name):
                 return index
-    return -1  
+    return -1
 
-
+#replace the appropriate image in the slide
 def replace_img_slide(slide, img, img_path):
     # Replace the picture in the shape object (img) with the image in img_path.
     imgPic = img._pic

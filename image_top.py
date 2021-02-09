@@ -5,11 +5,11 @@ from image_functions import *
 import os
 
 
+#image_top main class
 class image_top:
     def __init__(self, top):
         Label(top, text="Select a excel file: ").grid(row=0, padx=10)
         Label(top, text="Select a ppt file: ").grid(row=1, padx=10)
-        
         self.ppt_entry_box = Entry(top, width=50)
         self.ppt_entry_box.grid(row=1, column=1)
 
@@ -24,13 +24,14 @@ class image_top:
 
         self.execute_btn = Button(top, text="Execute", command=self.execute)
         self.execute_btn.grid(row=3, column=1)
-    
+
+#execute method for execute button command
     def execute(self):
         if(".xlsx" in self.xl_entry_box.get() and ".pptx" in self.ppt_entry_box.get()):
             i_runner(self.xl_entry_box.get(), self.ppt_entry_box.get())
         else:
             messagebox.showerror(title="Error", message="Check the imported file again")
-
+#entry_btns command for open a file
     def open(self, box):
         if(box==self.xl_entry_box):
             filename = filedialog.askopenfilename(title="Select A File", filetypes=(("Excel files", "*.xlsx"), ("all files", "*.*")))
