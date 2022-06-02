@@ -5,7 +5,7 @@ XL-PPTX is a software that is focused to be used in all the field but especially
 
 **For example:** In your corporation you have 10-20 Power Point files containing 10-15 slides per file. In those file *Year 2020*  is defined but your superior wants them to be  *Year 2022* and also some other information that should be changed in a short duration of time. If you have familiarity with Power Point you will think that it can be done with Power Point's built in `find & replace` but think if you have 20 information then this `find & replace` procedure will be cumbersome. In this case you can automate your task using this software. 
 
-**Note:** The `application` can be found in the `dist/` directory named `xl_pptx.exe` and this is only released for `windows`. Also, all the test files can be found in the `tests/` directory. 
+**Note:** The `application` can be found in the `dist/` directory named `xl_pptx_v1.6.exe` and this is only released for `windows`. Also, all the test files can be found in the `tests/` directory. 
 
 ![main_layout](./screenshots/1.png)
 
