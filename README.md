@@ -101,7 +101,7 @@ Custom module information:
 
 1. Install the libraries.
 
-   ```pip install openpyxl python-pptx openpyxl-image-loader nuitka zstandard ordered-set```
+   ```pip install tk openpyxl python-pptx openpyxl-image-loader nuitka zstandard ordered-set```
 
 2. Notice that we are using `nuitka` as our python compiler and `zstandard` for compressing the binary.
 
