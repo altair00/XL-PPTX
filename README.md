@@ -3,7 +3,7 @@
 
 XL-PPTX is a software that is focused to be used in all the field but especially in the corporate field where bulk amount of  Power Point slides information needs to be replaced in a short duration. 
 
-**For example:** In your corporation you have 10-20 Power Point files containing 10-15 slides per file. In those file *Year 2020*  is defined but your superior wants them to be  *Year 2022* and also some other information that should be changed in a short duration of time. In this case you can automate your task using this software. 
+**For example:** In your corporation you have 10-20 Power Point files containing 10-15 slides per file. In those file *Year 2020*  is defined but your superior wants them to be  *Year 2022* and also some other information that should be changed in a short duration of time. If you have familiarity with Power Point you will think that it can be done with Power Point's built in `find & replace` but think if you have 20 information then this `find & replace` procedure will be cumbersome. In this case you can automate your task using this software. 
 
 **Note:** The `application` can be found in the `dist/` directory named `xl_pptx.exe` and this is only released for `windows`. Also, all the test files can be found in the `tests/` directory. 
 
@@ -82,10 +82,8 @@ XL-PPTX is a software that is focused to be used in all the field but especially
 Python modules and libraries that were used:
 
 * tkinter
-* os
-* base64
 * openpyxl
-* shutil
+* openpyxl-image-loader
 * python-pptx
 
 Custom module information: 
@@ -98,3 +96,15 @@ Custom module information:
 * `image_functions.py` all the necessary functions for image operations
 
 * `text_functions.py` all the necessary function for text operations
+
+# Build procedure
+
+1. Install the libraries.
+
+   ```pip install openpyxl python-pptx openpyxl-image-loader nuitka zstandard ordered-set```
+
+2. Notice that we are using `nuitka` as our python compiler and `zstandard` for compressing the binary.
+
+3. For building run `nuitka` with appropriate flags like below.
+
+   ```python -m nuitka --follow-imports --standalone --onefile --enable-plugin=tk-inter --windows-disable-console --windows-icon-from-ico=./logo.ico ./GUI.py```
