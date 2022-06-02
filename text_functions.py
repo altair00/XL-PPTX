@@ -1,3 +1,5 @@
+import collections
+import collections.abc
 from pptx import Presentation
 from tkinter import messagebox
 import openpyxl as xl
