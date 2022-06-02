@@ -101,10 +101,14 @@ Custom module information:
 
 1. Install the libraries.
 
-   ```pip install tk openpyxl python-pptx openpyxl-image-loader nuitka zstandard ordered-set```
+   ```
+   pip install tk openpyxl python-pptx openpyxl-image-loader nuitka zstandard ordered-set
+   ```
 
 2. Notice that we are using `nuitka` as our python compiler and `zstandard` for compressing the binary.
 
 3. For building run `nuitka` with appropriate flags like below.
 
-   ```python -m nuitka --follow-imports --standalone --onefile --enable-plugin=tk-inter --windows-disable-console --windows-icon-from-ico=./logo.ico ./GUI.py```
+   ```
+   python -m nuitka --follow-imports --standalone --onefile --enable-plugin=tk-inter --windows-disable-console --windows-icon-from-ico=./logo.ico ./GUI.py
+   ```
